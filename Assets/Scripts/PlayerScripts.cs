@@ -25,6 +25,20 @@ public class PlayerScripts : MonoBehaviour
         {
             OnGame();
         }
+
+        Touch toque = Input.GetTouch(0);
+
+        switch (toque.phase)
+        {
+            case TouchPhase.Began:
+
+                break;
+
+            case TouchPhase.Ended:
+
+                break;
+        }
+
     }
 
     void OnGame()
