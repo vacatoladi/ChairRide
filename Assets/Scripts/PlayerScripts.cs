@@ -3,20 +3,27 @@ using UnityEngine;
 public class PlayerScripts : MonoBehaviour
 {
 
+
     public bool started = false;
     bool startedRN = true;
 
+    // moedas recebidas na partida
     public int clips;
 
-    public float speed = 10;
-    public float inicialSpeed;
+    public float thrust = 20f;       // For�a para subir
+    public float maxVelocity = 14f;  // Velocidade m�xima para cima
+    private Rigidbody2D rb;
 
+
+    //CENARIO
+    public float speed = 10f;
+    public float inicialSpeed;
     // quanto menor, maior o acrescimokkkk
     public float speedIncrease = 10f;
-
+    
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -26,18 +33,31 @@ public class PlayerScripts : MonoBehaviour
             OnGame();
         }
 
-        Touch toque = Input.GetTouch(0);
+        bool isTouching = Input.touchCount > 0 &&
+                         Input.GetTouch(0).phase != TouchPhase.Ended &&
+                         Input.GetTouch(0).phase != TouchPhase.Canceled;
 
-        switch (toque.phase)
+        if (isTouching)
         {
-            case TouchPhase.Began:
-
-                break;
-
-            case TouchPhase.Ended:
-
-                break;
+            // Se estiver tocando, aplica for�a para subir
+            if (rb.linearVelocity.y < maxVelocity)
+            {
+                rb.AddForce(Vector2.up * thrust, ForceMode2D.Force);
+            }
         }
+
+        //Touch toque = Input.GetTouch(0);
+
+        //switch (toque.phase)
+        //{
+        //    case TouchPhase.Began:
+
+        //        break;
+
+        //    case TouchPhase.Ended:
+
+        //        break;
+        //}
 
     }
 
