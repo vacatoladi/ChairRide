@@ -4,7 +4,7 @@ public class ObjectsSpeed : MonoBehaviour
 {
 
     public PlayerScripts pS;
-    float lifeTime = 4;
+    float lifeTime = 5;
     [SerializeField] float v;
 
     void Start()

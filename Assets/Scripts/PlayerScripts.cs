@@ -4,7 +4,7 @@ public class PlayerScripts : MonoBehaviour
 {
 
 
-    public bool started = false;
+    public bool started = true;
     bool startedRN = true;
 
     // moedas recebidas na partida
@@ -16,8 +16,8 @@ public class PlayerScripts : MonoBehaviour
 
 
     //CENARIO
-    public float speed = 10f;
-    public float inicialSpeed;
+    public float speed;
+    public float inicialSpeed = 5f;
     // quanto menor, maior o acrescimokkkk
     public float speedIncrease = 10f;
     

@@ -29,12 +29,9 @@ public class SpawnControll : MonoBehaviour
         stillSpawning = true;
         while (stillSpawning)
         {
-            Debug.Log("esperando");
             yield return new WaitForSeconds(3f);
-            Debug.Log("enviou");
             int numero = Random.Range(0, prefabs.Length);
             GameObject novo = Instantiate(prefabs[numero], transform.position, Quaternion.identity);
-            Debug.Log("lancou");
             ObjectsSpeed oS = novo.GetComponent<ObjectsSpeed>();
             oS.pS = pS;
         }
