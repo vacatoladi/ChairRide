@@ -3,10 +3,13 @@ using UnityEngine;
 public class PlayerScripts : MonoBehaviour
 {
 
+    public GameObject Jogo;
 
     public bool started = true;
     bool startedRN = true;
+    bool boosted = false;
 
+    int healthPoints = 1;
     // moedas recebidas na partida
     public int clips;
 
@@ -46,19 +49,6 @@ public class PlayerScripts : MonoBehaviour
             }
         }
 
-        //Touch toque = Input.GetTouch(0);
-
-        //switch (toque.phase)
-        //{
-        //    case TouchPhase.Began:
-
-        //        break;
-
-        //    case TouchPhase.Ended:
-
-        //        break;
-        //}
-
     }
 
     void OnGame()
@@ -73,9 +63,28 @@ public class PlayerScripts : MonoBehaviour
         speed += Time.deltaTime / speedIncrease;
     }
 
+    public void Damage()
+    {
+        if (!boosted)
+        {
+            healthPoints--;
+        }
+        else
+        {
+            boosted = false;
+        }
+
+        if (healthPoints == 0)
+        {
+            GameOver();
+        }
+    }
+
     void GameOver()
     {
         started = false;
+
+        Destroy(Jogo, 5f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
