@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -9,31 +10,62 @@ public class Menu : MonoBehaviour
     public TextMeshProUGUI textoInicial;
 
     bool iniciado;
+    float letterAnimOpacity = 0f;
 
-    private void Update()
+    void Start()
     {
-        bool isTouching = Input.touchCount > 0 &&
-                         Input.GetTouch(0).phase != TouchPhase.Ended &&
-                         Input.GetTouch(0).phase != TouchPhase.Canceled;
+        
+    }
 
-        if (isTouching)
-        {
+    void Update()
+    {
+        
+
+    }
+
+    //IEnumerator LetterAnim()
+    //{
+    //    float tempo = 0f;
+    //    float duracao = 2f;
+    //    bool voltando = false;
+
+    //    while (!iniciado)
+    //    {
+    //        tempo += Time.deltaTime / duracao;
+    //        float t = Mathf.SmoothStep(0f, 1f, tempo);
+
+    //        if (!voltando)
+    //        {
+    //            float opacity = Mathf.Lerp(0f, 1f, t);
+    //            Color c = textoInicial.color;
+    //            c.a = opacity;
+    //            textoInicial.color = c;
+
+    //            if (tempo >= 1f)
+    //            {
+    //                tempo = 0f;
+    //                voltando = true;
+    //                yield return new WaitForSeconds(1f);
+    //            }
+    //        }
+    //        else
+    //        {
+    //            float opacity = Mathf.Lerp(1f, 0f, t);
+    //            Color c = textoInicial.color;
+    //            c.a = opacity;
+    //            textoInicial.color = c;
+
+    //            if (tempo >= 1f)
+    //            {
+    //                tempo = 0f;
+    //                voltando = false;
+    //            }
+    //        }
+
             
-            iniciado = true;
+    //    }
 
-        }
-
-        if (!iniciado)
-        {
-            //LetterAnim();
-        }
-    }
-
-    void LetterAnim()
-    {
-        float a = 0;
-        textoInicial.color = new Color(0f, 0f, 0f, 0.5f);
-    }
+    //}
 
     void StartGame()
     {
