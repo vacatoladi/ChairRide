@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ObjectsSpeed : MonoBehaviour
 {
+    public Menu menu;
 
     public PlayerScripts pS;
     float lifeTime = 5;
@@ -14,7 +15,14 @@ public class ObjectsSpeed : MonoBehaviour
 
     void Update()
     {
-        v = -pS.speed;
-        transform.position += transform.right * -pS.speed * Time.deltaTime;
+        if (!menu.restarted)
+        {
+            v = -pS.speed;
+            transform.position += transform.right * -pS.speed * Time.deltaTime;
+        }
+        else
+        {
+            Destroy (gameObject);
+        }
     }
 }

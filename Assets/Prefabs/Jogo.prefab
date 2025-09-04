@@ -227,7 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3812438246283438815}
   - component: {fileID: 1198174220870573185}
-  - component: {fileID: 9123772445481253677}
   m_Layer: 0
   m_Name: Cenario
   m_TagString: Untagged
@@ -305,21 +304,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9123772445481253677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8287965724848832574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb77127ccfb52d9439ffd617d63dedbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
-  pS: {fileID: 0}
-  stillSpawning: 0
 --- !u!1 &8706188451709659723
 GameObject:
   m_ObjectHideFlags: 0

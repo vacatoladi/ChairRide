@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-
+    
+    public GameObject game;
     public GameObject jogo;
 
     public TextMeshProUGUI textoInicial;
 
+    public bool restarted;
     bool iniciado;
+    Coroutine c;
     float letterAnimOpacity = 0f;
 
     void Start()
@@ -23,57 +26,34 @@ public class Menu : MonoBehaviour
 
     }
 
-    //IEnumerator LetterAnim()
-    //{
-    //    float tempo = 0f;
-    //    float duracao = 2f;
-    //    bool voltando = false;
-
-    //    while (!iniciado)
-    //    {
-    //        tempo += Time.deltaTime / duracao;
-    //        float t = Mathf.SmoothStep(0f, 1f, tempo);
-
-    //        if (!voltando)
-    //        {
-    //            float opacity = Mathf.Lerp(0f, 1f, t);
-    //            Color c = textoInicial.color;
-    //            c.a = opacity;
-    //            textoInicial.color = c;
-
-    //            if (tempo >= 1f)
-    //            {
-    //                tempo = 0f;
-    //                voltando = true;
-    //                yield return new WaitForSeconds(1f);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            float opacity = Mathf.Lerp(1f, 0f, t);
-    //            Color c = textoInicial.color;
-    //            c.a = opacity;
-    //            textoInicial.color = c;
-
-    //            if (tempo >= 1f)
-    //            {
-    //                tempo = 0f;
-    //                voltando = false;
-    //            }
-    //        }
-
-            
-    //    }
-
-    //}
-
-    void StartGame()
+    public void GameTime(float f)
     {
+        Time.timeScale = f;
+    }
 
+    public void StartGame()
+    {
+        game = Instantiate(jogo);
+    }
+
+    public void RestartGame()
+    {
+        if (c != null) { c = null; }
+        c = StartCoroutine(Reiniciate());
+        Destroy(game);
+        
+        //game = Instantiate(jogo);
+    }
+
+    IEnumerator Reiniciate()
+    {
+        Destroy(game);
+        restarted = true;
+        yield return new WaitForSeconds(1f);
+        game = Instantiate(jogo);
+        restarted = false;
     }
 
 
-
-    
 
 }
