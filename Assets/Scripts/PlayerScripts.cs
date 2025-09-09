@@ -1,9 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerScripts : MonoBehaviour
 {
 
-    public GameObject Jogo;
+    public bool isTouching;
+
+    public Menu menu;
+
+    public GameObject jogo;
 
     public bool started = true;
     bool startedRN = true;
@@ -12,10 +18,12 @@ public class PlayerScripts : MonoBehaviour
     int healthPoints = 1;
     // moedas recebidas na partida
     public int clips;
+    public float meters;
 
     public float thrust = 20f;       // For�a para subir
     public float maxVelocity = 14f;  // Velocidade m�xima para cima
     private Rigidbody2D rb;
+
 
 
     //CENARIO
@@ -29,16 +37,14 @@ public class PlayerScripts : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    
+
     void Update()
     {
         if (started)
         {
             OnGame();
         }
-
-        bool isTouching = Input.touchCount > 0 &&
-                         Input.GetTouch(0).phase != TouchPhase.Ended &&
-                         Input.GetTouch(0).phase != TouchPhase.Canceled;
 
         if (isTouching)
         {
@@ -48,7 +54,6 @@ public class PlayerScripts : MonoBehaviour
                 rb.AddForce(Vector2.up * thrust, ForceMode2D.Force);
             }
         }
-
     }
 
     void OnGame()
@@ -59,8 +64,23 @@ public class PlayerScripts : MonoBehaviour
 
             speed = inicialSpeed;
         }
+        if (speed < 10f)
+        {
+            speed += Time.deltaTime / speedIncrease;
+        }
+        else if (speed < 15f)
+        {
+            speed += Time.deltaTime / speedIncrease / 2;
+        }
+        else if (speed < 20f)
+        {
+            speed += Time.deltaTime / speedIncrease / 3.5f;
+        }
 
-        speed += Time.deltaTime / speedIncrease;
+
+        meters += Time.deltaTime * speed / 2;
+
+        menu.RefreshInGameUI(meters, clips);
     }
 
     public void Damage()
@@ -74,7 +94,7 @@ public class PlayerScripts : MonoBehaviour
             boosted = false;
         }
 
-        if (healthPoints == 0)
+        if (healthPoints <= 0)
         {
             GameOver();
         }
@@ -83,8 +103,8 @@ public class PlayerScripts : MonoBehaviour
     void GameOver()
     {
         started = false;
-
-        Destroy(Jogo, 5f);
+        isTouching = false;
+        menu.Deactivate((int)meters, clips);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -93,6 +113,10 @@ public class PlayerScripts : MonoBehaviour
         {
             clips++;
             Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Zap"))
+        {
+            Damage();
         }
     }
 }

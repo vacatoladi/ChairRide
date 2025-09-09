@@ -5,7 +5,7 @@ public class ObjectsSpeed : MonoBehaviour
     public Menu menu;
 
     public PlayerScripts pS;
-    float lifeTime = 5;
+    float lifeTime = 10;
     [SerializeField] float v;
 
     void Start()

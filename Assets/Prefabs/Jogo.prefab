@@ -45,18 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6127515681410353780, guid: aa8ebba28ac13bf49a64bbc38be3ac91, type: 3}
-  - {fileID: 4742913871122464594, guid: ab1eb212e751f9042b65d27b60d1cff8, type: 3}
-  - {fileID: 2148614804422690888, guid: 562144b5e8428e242acd3a376de3390f, type: 3}
-  - {fileID: 1763873247369236372, guid: 697c9c4f76b46fd458077dad2fe46c7e, type: 3}
-  - {fileID: 3363558017415805776, guid: c94c5206835e85345b9f721154dd03c7, type: 3}
-  - {fileID: 5270555923284656525, guid: 3d981a2e213c91e42988028a084af285, type: 3}
-  - {fileID: 8952571148825516402, guid: c246d32b40be1d84cbd67fc18367892b, type: 3}
-  - {fileID: 6081150717539558474, guid: 38e807109c0358141bd48f1ccdb14ae9, type: 3}
-  - {fileID: 9161967477736639584, guid: 6ed65aad3fef1d24bb640f82296ef91f, type: 3}
-  - {fileID: 5982318237256045882, guid: 78c753ebe343e7145a08bd795fbaa1e5, type: 3}
+  - {fileID: 3271816624815802752, guid: 022bfa90f428e3144af1750fced41d5d, type: 3}
   pS: {fileID: 7706044695621482932}
   stillSpawning: 0
+  menu: {fileID: 0}
 --- !u!1 &6089649785720687498
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,10 +444,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6082113633b82c14982634d02e0c0265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jogo: {fileID: 0}
+  isTouching: 0
+  menu: {fileID: 0}
+  jogo: {fileID: 0}
   started: 1
   clips: 0
-  thrust: 30
+  meters: 0
+  thrust: 20
   maxVelocity: 14
   speed: 0
   inicialSpeed: 5
