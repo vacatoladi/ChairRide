@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
     [SerializeField] ButtonPressed bP;
 
     int metersHighScore = 0;
+    int coins = 0;
 
     public GameObject menuInGame;
     public GameObject menuGameOver;
