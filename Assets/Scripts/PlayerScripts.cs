@@ -8,6 +8,7 @@ public class PlayerScripts : MonoBehaviour
     public bool isTouching;
 
     public Menu menu;
+    public MissionsHandler missionsHandler;
 
     public GameObject jogo;
 

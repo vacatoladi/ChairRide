@@ -10890,6 +10890,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bP: {fileID: 231777646}
+  missionsHandler: {fileID: 0}
+  missionData: {fileID: 11400000, guid: 88abd8641bff9d24f97b235df0a29393, type: 2}
+  missionsTextMm:
+  - {fileID: 1291719610}
+  - {fileID: 1593749226}
+  - {fileID: 1077057843}
+  missionsTextPm:
+  - {fileID: 52306690}
+  - {fileID: 249568588}
+  - {fileID: 469062515}
+  missionsTextDm:
+  - {fileID: 1354722419}
+  - {fileID: 644068960}
+  - {fileID: 1241856704}
+  collectMissionButton:
+  - {fileID: 508655155}
+  - {fileID: 1047923044}
+  - {fileID: 1067830957}
+  completedMissionMarker:
+  - {fileID: 754300643}
+  - {fileID: 1512283130}
+  - {fileID: 1198047013}
   menuInGame: {fileID: 1334851975}
   menuGameOver: {fileID: 2061293886}
   clipsCollectedOnGame: {fileID: 106088623}
@@ -10897,7 +10919,9 @@ MonoBehaviour:
   metersHighScoreGameOverText: {fileID: 1538772474}
   metersWalkedGameOverText: {fileID: 1656090275}
   newHighScoreGameOver: {fileID: 1654272984}
-  posClips: []
+  posClips:
+  - {fileID: 2110891805}
+  - {fileID: 1158913627}
   graphicsText:
   - {fileID: 2117571121}
   - {fileID: 450790094}
@@ -12151,7 +12175,7 @@ GameObject:
   - component: {fileID: 1158913628}
   - component: {fileID: 1158913627}
   m_Layer: 5
-  m_Name: Clips Collected
+  m_Name: ClipsPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13439,7 +13463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1254156995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15566,7 +15590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1437088929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15865,7 +15889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1454227340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22118,7 +22142,7 @@ GameObject:
   - component: {fileID: 2110891806}
   - component: {fileID: 2110891805}
   m_Layer: 5
-  m_Name: Clips Collected
+  m_Name: ClipsPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22163,7 +22187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
